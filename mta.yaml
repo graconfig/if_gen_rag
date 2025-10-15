@@ -1,0 +1,315 @@
+_schema-version: 3.3.0
+ID: ifgenrag
+description: ifgenrag CAP project.
+version: 0.0.1
+modules:
+  - name: ifgenrag-srv
+    type: nodejs
+    path: dist/srv
+    requires:
+      - name: ifgenrag-auth
+      - name: ifgenrag-db
+      - name: ifgenrag-destination
+      - name: ifgenrag-connectivity
+    provides:
+      - name: srv-api
+        properties:
+          srv-url: ${default-url}
+    parameters:
+      buildpack: nodejs_buildpack
+      readiness-health-check-http-endpoint: /health
+      readiness-health-check-type: http
+    build-parameters:
+      builder: npm
+  - name: ifgenrag-db-deployer
+    type: hdb
+    path: dist/db
+    requires:
+      - name: ifgenrag-db
+    parameters:
+      buildpack: nodejs_buildpack
+  - name: ifgenrag
+    type: approuter.nodejs
+    path: app\router
+    requires:
+      - name: srv-api
+        group: destinations
+        properties:
+          forwardAuthToken: true
+          name: srv-api
+          url: ~{srv-url}
+      - name: ifgenrag-auth
+      - name: ifgenrag-destination
+    provides:
+      - name: app-api
+        properties:
+          app-protocol: ${protocol}
+          app-uri: ${default-uri}
+    parameters:
+      disk-quota: 256M
+      keep-existing-routes: true
+      memory: 256M
+  - name: ifgenragchatbotui
+    type: html5
+    path: app/chat-bot-ui
+    build-parameters:
+      build-result: dist
+      builder: custom
+      commands:
+        - npm ci
+        - npm run build
+      supported-platforms: []
+  - name: ifgenragparameters
+    type: html5
+    path: app/parameters
+    build-parameters:
+      build-result: dist
+      builder: custom
+      commands:
+        - npm ci
+        - npm run build
+      supported-platforms: []
+  - name: ifgenragreports
+    type: html5
+    path: app/reports
+    build-parameters:
+      build-result: dist
+      builder: custom
+      commands:
+        - npm ci
+        - npm run build
+      supported-platforms: []
+  - name: ifgenragcapragapp
+    type: html5
+    path: app/cap-rag-app
+    build-parameters:
+      build-result: dist
+      builder: custom
+      commands:
+        - npm ci
+        - npm run build
+      supported-platforms: []
+  - name: ifgenragragjoincond
+    type: html5
+    path: app/ragjoincond
+    build-parameters:
+      build-result: dist
+      builder: custom
+      commands:
+        - npm ci
+        - npm run build
+      supported-platforms: []
+  - name: ifgenragragtablefields
+    type: html5
+    path: app/ragtablefields
+    build-parameters:
+      build-result: dist
+      builder: custom
+      commands:
+        - npm ci
+        - npm run build
+      supported-platforms: []
+  - name: ifgenragcdsviews
+    type: html5
+    path: app/cdsviews
+    build-parameters:
+      build-result: dist
+      builder: custom
+      commands:
+        - npm ci
+        - npm run build
+      supported-platforms: []
+  - name: ifgenragcdsviewfields
+    type: html5
+    path: app/cdsviewfields
+    build-parameters:
+      build-result: dist
+      builder: custom
+      commands:
+        - npm ci
+        - npm run build
+      supported-platforms: []
+  - name: ifgenragcustomviewfields
+    type: html5
+    path: app/customviewfields
+    build-parameters:
+      build-result: dist
+      builder: custom
+      commands:
+        - npm ci
+        - npm run build
+      supported-platforms: []
+  - name: ifgenragscenarios
+    type: html5
+    path: app/scenarios
+    build-parameters:
+      build-result: dist
+      builder: custom
+      commands:
+        - npm ci
+        - npm run build
+      supported-platforms: []
+  - name: ifgenragllmconfig
+    type: html5
+    path: app/llmconfig
+    build-parameters:
+      build-result: dist
+      builder: custom
+      commands:
+        - npm ci
+        - npm run build
+      supported-platforms: []
+  - name: ifgenrag-destinations
+    type: com.sap.application.content
+    requires:
+      - name: ifgenrag-auth
+        parameters:
+          service-key:
+            name: ifgenrag-auth-key
+      - name: ifgenrag-html5-repo-host
+        parameters:
+          service-key:
+            name: ifgenrag-html5-repo-host-key
+      - name: srv-api
+      - name: ifgenrag-destination
+        parameters:
+          content-target: true
+    parameters:
+      content:
+        instance:
+          destinations:
+            - Name: ifgenrag-html5-repository
+              ServiceInstanceName: ifgenrag-html5-repo-host
+              ServiceKeyName: ifgenrag-html5-repo-host-key
+              sap.cloud.service: ifgenrag.service
+            - Authentication: OAuth2UserTokenExchange
+              Name: ifgenrag-auth
+              ServiceInstanceName: ifgenrag-auth
+              ServiceKeyName: ifgenrag-auth-key
+              sap.cloud.service: ifgenrag.service
+          existing_destinations_policy: update
+    build-parameters:
+      no-source: true
+  - name: ifgenrag-app-deployer
+    type: com.sap.application.content
+    path: dist
+    requires:
+      - name: ifgenrag-html5-repo-host
+        parameters:
+          content-target: true
+    build-parameters:
+      build-result: app/
+      requires:
+        - artifacts:
+            - cap-rag-app.zip
+          name: ifgenragcapragapp
+          target-path: app/
+        - artifacts:
+            - scenarios.zip
+          name: ifgenragscenarios
+          target-path: app/
+        - artifacts:
+            - cdsviews.zip
+          name: ifgenragcdsviews
+          target-path: app/
+        - artifacts:
+            - cdsviewfields.zip
+          name: ifgenragcdsviewfields
+          target-path: app/
+        - artifacts:
+            - customviewfields.zip
+          name: ifgenragcustomviewfields
+          target-path: app/
+        - artifacts:
+            - chat-bot-ui.zip
+          name: ifgenragchatbotui
+          target-path: app/
+        - artifacts:
+            - parameters.zip
+          name: ifgenragparameters
+          target-path: app/
+        - artifacts:
+            - ragtablefields.zip
+          name: ifgenragragtablefields
+          target-path: app/
+        - artifacts:
+            - reports.zip
+          name: ifgenragreports
+          target-path: app/
+        - artifacts:
+            - llmconfig.zip
+          name: ifgenragllmconfig
+          target-path: app/
+        - artifacts:
+            - ragjoincond.zip
+          name: ifgenragragjoincond
+          target-path: app/
+
+resources:
+  - name: ifgenrag-auth
+    type: org.cloudfoundry.managed-service
+    parameters:
+      config:
+        tenant-mode: dedicated
+        xsappname: ifgenrag
+      path: ./xs-security.json
+      service: xsuaa
+      service-plan: application
+  - name: ifgenrag-db
+    type: com.sap.xs.hdi-container
+    parameters:
+      config:
+        database_id: 68146dfe-6c00-45d8-9cdb-193f50a6adb4
+      service: hana
+      service-plan: hdi-shared
+  - name: ifgenrag-destination
+    type: org.cloudfoundry.managed-service
+    parameters:
+      config:
+        HTML5Runtime_enabled: true
+        init_data:
+          instance:
+            destinations:
+              - Authentication: NoAuthentication
+                HTML5.DynamicDestination: true
+                HTML5.ForwardAuthToken: true
+                HTML5.Timeout: 240000
+                Name: ifgenrag-srv-api
+                ProxyType: Internet
+                Type: HTTP
+                URL: ~{srv-api/srv-url}
+              - Authentication: NoAuthentication
+                Name: ui5
+                ProxyType: Internet
+                Type: HTTP
+                URL: https://ui5.sap.com
+            existing_destinations_policy: update
+      service: destination
+      service-plan: lite
+    requires:
+      - name: srv-api
+        group: destinations
+        properties:
+          forwardAuthToken: true
+          name: srv-api
+          url: ~{srv-url}
+  - name: ifgenrag-html5-repo-host
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: html5-apps-repo
+      service-plan: app-host
+  - name: ifgenrag-connectivity
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: connectivity
+      service-plan: lite
+parameters:
+  deploy_mode: html5-repo
+  enable-parallel-deployments: true
+build-parameters:
+  before-all:
+    - builder: custom
+      commands:
+        - npm ci
+        - npx cds build --production
+        - xcopy patches dist\\srv\\patches /E /I /Y

@@ -1,0 +1,50 @@
+{
+  "requires": {
+    "[hybrid]": {
+      "destinations": {
+        "binding": {
+          "type": "cf",
+          "apiEndpoint": "https://api.cf.jp10.hana.ondemand.com",
+          "org": "PwC Consulting LLC_genai-japan-aws-7ht03ppo",
+          "space": "CLC",
+          "instance": "ifgenrag-destination",
+          "key": "ifgenrag-destination-key",
+          "resolved": false
+        },
+        "kind": "destinations",
+        "vcap": {
+          "name": "destinations"
+        }
+      },
+      "connectivity": {
+        "binding": {
+          "type": "cf",
+          "apiEndpoint": "https://api.cf.jp10.hana.ondemand.com",
+          "org": "PwC Consulting LLC_genai-japan-aws-7ht03ppo",
+          "space": "CLC",
+          "instance": "ifgenrag-connectivity",
+          "key": "ifgenrag-connectivity-key",
+          "resolved": false
+        },
+        "kind": "connectivity",
+        "vcap": {
+          "name": "connectivity"
+        }
+      },
+      "db": {
+        "binding": {
+          "type": "cf",
+          "apiEndpoint": "https://api.cf.jp10.hana.ondemand.com",
+          "org": "PwC Consulting LLC_genai-japan-aws-7ht03ppo",
+          "space": "CLC",
+          "instance": "ifgenrag-db",
+          "key": "ifgenrag-db-key"
+        },
+        "kind": "hana",
+        "vcap": {
+          "name": "db"
+        }
+      }
+    }
+  }
+}

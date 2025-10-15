@@ -1,0 +1,200 @@
+{
+  "_version": "1.65.0",
+  "sap.app": {
+    "id": "cdsviewfields-dev",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:lrop",
+      "version": "1.16.1",
+      "toolsId": "2c93c0ad-cb35-43b9-958d-97a68c53da3f"
+    },
+    "dataSources": {
+      "mainService": {
+        "uri": "embedding/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "odataVersion": "4.0"
+        }
+      }
+    },
+    "crossNavigation": {
+      "inbounds": {
+        "cdsviewfields-Display": {
+          "semanticObject": "cdsviewfields",
+          "action": "Display",
+          "title": "RAG(CDS View Fields) ",
+          "signature": {
+            "parameters": {},
+            "additionalParameters": "allowed"
+          }
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.136.0",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.fe.templates": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "cdsviewfields-dev.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {
+          "operationMode": "Server",
+          "autoExpandSelect": true,
+          "earlyRequests": true
+        }
+      },
+      "@i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "uri": "i18n/i18n.properties"
+      }
+    },
+    "resources": {
+      "css": []
+    },
+    "routing": {
+      "config": {},
+      "routes": [
+        {
+          "pattern": ":?query:",
+          "name": "CDSViewFilesList",
+          "target": "CDSViewFilesList"
+        },
+        {
+          "pattern": "CDSViewFiles({key}):?query:",
+          "name": "CDSViewFilesObjectPage",
+          "target": "CDSViewFilesObjectPage"
+        },
+        {
+          "pattern": "CDSViewFiles({key})/viewFields({key2}):?query:",
+          "name": "ViewfieldsObjectPage",
+          "target": "ViewfieldsObjectPage"
+        }
+      ],
+      "targets": {
+        "CDSViewFilesList": {
+          "type": "Component",
+          "id": "CDSViewFilesList",
+          "name": "sap.fe.templates.ListReport",
+          "options": {
+            "settings": {
+              "contextPath": "/CDSViewFiles",
+              "variantManagement": "Page",
+              "navigation": {
+                "CDSViewFiles": {
+                  "detail": {
+                    "route": "CDSViewFilesObjectPage"
+                  }
+                }
+              },
+              "controlConfiguration": {
+                "@com.sap.vocabularies.UI.v1.LineItem": {
+                  "tableSettings": {
+                    "type": "ResponsiveTable",
+                    "widthIncludingColumnHeader": true
+                  },
+                  "actions": {
+                    "upload": {
+                      "press": "cdsviewfields-dev.ext.controller.ActionHandler.onUpload",
+                      "visible": true,
+                      "enabled": true,
+                      "requiresSelection": false,
+                      "text": "Upload"
+                    }
+                  }
+                }
+              },
+              "initialLoad": "Enabled"
+            }
+          }
+        },
+        "CDSViewFilesObjectPage": {
+          "type": "Component",
+          "id": "CDSViewFilesObjectPage",
+          "name": "sap.fe.templates.ObjectPage",
+          "options": {
+            "settings": {
+              "editableHeaderContent": false,
+              "contextPath": "/CDSViewFiles",
+              "navigation": {
+                "viewFields": {
+                  "detail": {
+                    "route": "ViewfieldsObjectPage"
+                  }
+                }
+              },
+              "controlConfiguration": {
+                "viewFields/@com.sap.vocabularies.UI.v1.LineItem#ViewFields": {
+                  "tableSettings": {
+                    "type": "ResponsiveTable",
+                    "widthIncludingColumnHeader": true
+                  }
+                }
+              }
+            }
+          }
+        },
+        "ViewfieldsObjectPage": {
+          "type": "Component",
+          "id": "ViewfieldsObjectPage",
+          "name": "sap.fe.templates.ObjectPage",
+          "options": {
+            "settings": {
+              "editableHeaderContent": false,
+              "contextPath": "/CDSViewFiles/viewFields"
+            }
+          }
+        }
+      }
+    }
+  },
+  "sap.fiori": {
+    "registrationIds": [],
+    "archeType": "transactional"
+  },
+  "sap.cloud": {
+    "public": true,
+    "service": "ai2report.service"
+  }
+}

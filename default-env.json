@@ -1,0 +1,75 @@
+{
+  "hana": [
+    {
+      "label": "hana",
+      "plan": "hdi-shared",
+      "tags": ["hana", "database", "relational"],
+      "name": "db",
+      "credentials": {
+        "database_id": "bf5b6e7e-8a7a-4d6b-97ec-2584834b3c00",
+        "host": "bf5b6e7e-8a7a-4d6b-97ec-2584834b3c00.hana.prod-jp10.hanacloud.ondemand.com",
+        "port": "443",
+        "driver": "com.sap.db.jdbc.Driver",
+        "url": "jdbc:sap://bf5b6e7e-8a7a-4d6b-97ec-2584834b3c00.hana.prod-jp10.hanacloud.ondemand.com:443?encrypt=true&validateCertificate=true&currentschema=75F141DB6E04433E8E67DC84841A50EE",
+        "schema": "75F141DB6E04433E8E67DC84841A50EE",
+        "certificate": "-----BEGIN CERTIFICATE-----\nMIIDrzCCApegAwIBAgIQCDvgVpBCRrGhdWrJWZHHSjANBgkqhkiG9w0BAQUFADBh\nMQswCQYDVQQGEwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5jMRkwFwYDVQQLExB3\nd3cuZGlnaWNlcnQuY29tMSAwHgYDVQQDExdEaWdpQ2VydCBHbG9iYWwgUm9vdCBD\nQTAeFw0wNjExMTAwMDAwMDBaFw0zMTExMTAwMDAwMDBaMGExCzAJBgNVBAYTAlVT\nMRUwEwYDVQQKEwxEaWdpQ2VydCBJbmMxGTAXBgNVBAsTEHd3dy5kaWdpY2VydC5j\nb20xIDAeBgNVBAMTF0RpZ2lDZXJ0IEdsb2JhbCBSb290IENBMIIBIjANBgkqhkiG\n9w0BAQEFAAOCAQ8AMIIBCgKCAQEA4jvhEXLeqKTTo1eqUKKPC3eQyaKl7hLOllsB\nCSDMAZOnTjC3U/dDxGkAV53ijSLdhwZAAIEJzs4bg7/fzTtxRuLWZscFs3YnFo97\nnh6Vfe63SKMI2tavegw5BmV/Sl0fvBf4q77uKNd0f3p4mVmFaG5cIzJLv07A6Fpt\n43C/dxC//AH2hdmoRBBYMql1GNXRor5H4idq9Joz+EkIYIvUX7Q6hL+hqkpMfT7P\nT19sdl6gSzeRntwi5m3OFBqOasv+zbMUZBfHWymeMr/y7vrTC0LUq7dBMtoM1O/4\ngdW7jVg/tRvoSSiicNoxBN33shbyTApOB6jtSj1etX+jkMOvJwIDAQABo2MwYTAO\nBgNVHQ8BAf8EBAMCAYYwDwYDVR0TAQH/BAUwAwEB/zAdBgNVHQ4EFgQUA95QNVbR\nTLtm8KPiGxvDl7I90VUwHwYDVR0jBBgwFoAUA95QNVbRTLtm8KPiGxvDl7I90VUw\nDQYJKoZIhvcNAQEFBQADggEBAMucN6pIExIK+t1EnE9SsPTfrgT1eXkIoyQY/Esr\nhMAtudXH/vTBH1jLuG2cenTnmCmrEbXjcKChzUyImZOMkXDiqw8cvpOp/2PV5Adg\n06O/nVsJ8dWO41P0jmP6P6fbtGbfYmbW0W5BjfIttep3Sp+dWOIrWcBAI+0tKIJF\nPnlUkiaY4IBIqDfv8NZ5YBberOgOzW6sRBc4L0na4UU+Krk2U886UAb3LujEV0ls\nYSEY1QSteDwsOoBrp+uvFRTp2InBuThs4pFsiv9kuXclVzDAGySj4dzp30d8tbQk\nCAUw7C29C79Fv1C5qfPrmAESrciIxpg0X40KPMbp1ZWVbd4=\n-----END CERTIFICATE-----\n-----BEGIN CERTIFICATE-----\nMIIFZjCCA06gAwIBAgIQCPm0eKj6ftpqMzeJ3nzPijANBgkqhkiG9w0BAQwFADBN\nMQswCQYDVQQGEwJVUzEXMBUGA1UEChMORGlnaUNlcnQsIEluYy4xJTAjBgNVBAMT\nHERpZ2lDZXJ0IFRMUyBSU0E0MDk2IFJvb3QgRzUwHhcNMjEwMTE1MDAwMDAwWhcN\nNDYwMTE0MjM1OTU5WjBNMQswCQYDVQQGEwJVUzEXMBUGA1UEChMORGlnaUNlcnQs\nIEluYy4xJTAjBgNVBAMTHERpZ2lDZXJ0IFRMUyBSU0E0MDk2IFJvb3QgRzUwggIi\nMA0GCSqGSIb3DQEBAQUAA4ICDwAwggIKAoICAQCz0PTJeRGd/fxmgefM1eS87IE+\najWOLrfn3q/5B03PMJ3qCQuZvWxX2hhKuHisOjmopkisLnLlvevxGs3npAOpPxG0\n2C+JFvuUAT27L/gTBaF4HI4o4EXgg/RZG5Wzrn4DReW+wkL+7vI8toUTmDKdFqgp\nwgscONyfMXdcvyej/Cestyu9dJsXLfKB2l2w4SMXPohKEiPQ6s+d3gMXsUJKoBZM\npG2T6T867jp8nVid9E6P/DsjyG244gXazOvswzH016cpVIDPRFtMbzCe88zdH5RD\nnU1/cHAN1DrRN/BsnZvAFJNY781BOHW8EwOVfH/jXOnVDdXifBBiqmvwPXbzP6Po\nsMH976pXTayGpxi0KcEsDr9kvimM2AItzVwv8n/vFfQMFawKsPHTDU9qTXeXAaDx\nZre3zu/O7Oyldcqs4+Fj97ihBMi8ez9dLRYiVu1ISf6nL3kwJZu6ay0/nTvEF+cd\nLvvyz6b84xQslpghjLSR6Rlgg/IwKwZzUNWYOwbpx4oMYIwo+FKbbuH2TbsGJJvX\nKyY//SovcfXWJL5/MZ4PbeiPT02jP/816t9JXkGPhvnxd3lLG7SjXi/7RgLQZhNe\nXoVPzthwiHvOAbWWl9fNff2C+MIkwcoBOU+NosEUQB+cZtUMCUbW8tDRSHZWOkPL\ntgoRObqME2wGtZ7P6wIDAQABo0IwQDAdBgNVHQ4EFgQUUTMc7TZArxfTJc1paPKv\nTiM+s0EwDgYDVR0PAQH/BAQDAgGGMA8GA1UdEwEB/wQFMAMBAf8wDQYJKoZIhvcN\nAQEMBQADggIBAGCmr1tfV9qJ20tQqcQjNSH/0GEwhJG3PxDPJY7Jv0Y02cEhJhxw\nGXIeo8mH/qlDZJY6yFMECrZBu8RHANmfGBg7sg7zNOok992vIGCukihfNudd5N7H\nPNtQOa27PShNlnx2xlv0wdsUpasZYgcYQF+Xkdycx6u1UQ3maVNVzDl92sURVXLF\nO4uJ+DQtpBflF+aZfTCIITfNMBc9uPK8qHWgQ9w+iUuQrm0D4ByjoJYJu32jtyoQ\nREtGBzRj7TG5BO6jm5qu5jF49OokYTurWGT/u4cnYiWB39yhL/btp/96j1EuMPik\nAdKFOV8BmZZvWltwGUb+hmA+rYAQCd05JS9Yf7vSdPD3Rh9GOUrYU9DzLjtxpdRv\n/PNn5AeP3SYZ4Y1b+qOTEZvpyDrDVWiakuFSdjjo4bq9+0/V77PnSIMx8IIh47a+\np6tv75/fTM8BuGJqIz3nCU2AG3swpMPdB380vqQmsvZB6Akd4yCYqjdP//fx4ilw\nMUc/dNAUFvohigLVigmUdy7yWSiLfFCSCmZ4OIN1xLVaqBHG5cGdZlXPU8Sv13WF\nqUITVuwhd4GTWgzqltlJyqEI8pc7bZsEGCREjnwB8twl2F6GmrE52/WRMmrRpnCK\novfepEWFJqgejF0pW8hL2JpqA15w8oVPbEtoL8pU9ozaMv7Da4M/OMZ+\n-----END CERTIFICATE-----",
+        "hdi_user": "75F141DB6E04433E8E67DC84841A50EE_CDEQUW5L0RBX3KH9RQT1A6TBI_DT",
+        "hdi_password": "Zz2Zro_iDVltrUI4zXbnxf5r4BaOxF-WTunADhSTm0X_F3RbOCqh39agl5VHfvRlkHUbx6HGA2wyUkeeDGHBhaR9mEHPw08AnUUiYY2FWvv.ixq0YAsJ0sNEAjAsZcYv",
+        "user": "75F141DB6E04433E8E67DC84841A50EE_CDEQUW5L0RBX3KH9RQT1A6TBI_RT",
+        "password": "Mg1wMUzO0fUE-k99_TcFMZUY-mtRXolamFuZBGOkf4vagBN8PykWczmxpnRiqWvkApGu9Tuo4R1TaT32fcZBCaEY3XIlsbUVUVOo3_M8_nDVqkr5pI2lQHr8bjwiMs5d"
+      }
+    }
+  ],
+  "connectivity": [
+    {
+      "label": "connectivity",
+      "plan": "lite",
+      "tags": ["connectivity", "conn", "connsvc"],
+      "name": "connectivity",
+      "credentials": {
+        "tenantmode": "dedicated",
+        "token-type": ["xsuaa"],
+        "clientid": "sb-clone933442fca7b94e9dba37fcda827dbffe!b26501|connectivity!b4",
+        "token_service_domain": "authentication.jp10.hana.ondemand.com",
+        "credential-type": "binding-secret",
+        "token_service_url": "https://genai-japan-aws-7ht03ppo.authentication.jp10.hana.ondemand.com",
+        "xsappname": "clone933442fca7b94e9dba37fcda827dbffe!b26501|connectivity!b4",
+        "onpremise_proxy_ldap_port": "20001",
+        "onpremise_socks5_proxy_port": "4004",
+        "clientsecret": "45e4b0a7-ef12-4a95-8589-45d3aafff546$SU-qvpwcTADphHMWvDB-aDSviv_AJw2S5szFgZmXNeQ=",
+        "onpremise_proxy_http_port": "4004",
+        "url": "https://genai-japan-aws-7ht03ppo.authentication.jp10.hana.ondemand.com",
+        "onpremise_proxy_host": "127.0.0.1",
+        "uaadomain": "authentication.jp10.hana.ondemand.com",
+        "onpremise_proxy_port": "20003",
+        "verificationkey": "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwWVFl+vbMdBpIjgs4W4l\nKJmJqBmTXMTPfXntvj/1ABM06sSE8Xaq5HYwTaHnFu/JmfBM+UiQQ/WaUuN1YwhY\n8iBsMPAfmmbd4G5oRd0BpjK9Vi2fUtdTIAmixWSNoHVMRL8hxbr9sJr1HS/XpEjB\nU2zkOxmLyvJjkt/t56XmQ1fYU1jpqZXOHSgrv4B1WwEiu5JCH3m5q+pLwS5Gs5YF\nAzB4Sw6oo7/tDVDPXKIxMfHLzywZGfQfzeEw4Few+VJIGjXpc5l0EnYPDJJLK6tV\npXODk40XGy9lq4Hmp0N9qpAGrGjb/Em98hkA7U28FI2ursGFncPO3HgvF3rBIwDI\nawIDAQAB\n-----END PUBLIC KEY-----",
+        "identityzone": "genai-japan-aws-7ht03ppo",
+        "tenantid": "4867e087-3e50-494e-b249-7e5e331d0346",
+        "onpremise_proxy_rfc_port": "20001"
+      }
+    }
+  ],
+  "destination": [
+    {
+      "label": "destination",
+      "plan": "lite",
+      "tags": ["destination", "conn", "connsvc"],
+      "name": "destinations",
+      "credentials": {
+        "tenantmode": "dedicated",
+        "token-type": ["xsuaa"],
+        "clientid": "sb-clone4ba6900534ba4077a9bc8a97bdd3a6e4!b26501|destination-xsappname!b5",
+        "credential-type": "binding-secret",
+        "xsappname": "clone4ba6900534ba4077a9bc8a97bdd3a6e4!b26501|destination-xsappname!b5",
+        "clientsecret": "ba1b28cb-a699-4fc9-a9e2-f4902e0944ec$UFNxo7IImtS3orp_5LIIChXljy_whjOPF7uZ6yBW3t0=",
+        "uri": "https://destination-configuration.cfapps.jp10.hana.ondemand.com",
+        "url": "https://genai-japan-aws-7ht03ppo.authentication.jp10.hana.ondemand.com",
+        "uaadomain": "authentication.jp10.hana.ondemand.com",
+        "instanceid": "4ba69005-34ba-4077-a9bc-8a97bdd3a6e4",
+        "verificationkey": "-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwWVFl+vbMdBpIjgs4W4l\nKJmJqBmTXMTPfXntvj/1ABM06sSE8Xaq5HYwTaHnFu/JmfBM+UiQQ/WaUuN1YwhY\n8iBsMPAfmmbd4G5oRd0BpjK9Vi2fUtdTIAmixWSNoHVMRL8hxbr9sJr1HS/XpEjB\nU2zkOxmLyvJjkt/t56XmQ1fYU1jpqZXOHSgrv4B1WwEiu5JCH3m5q+pLwS5Gs5YF\nAzB4Sw6oo7/tDVDPXKIxMfHLzywZGfQfzeEw4Few+VJIGjXpc5l0EnYPDJJLK6tV\npXODk40XGy9lq4Hmp0N9qpAGrGjb/Em98hkA7U28FI2ursGFncPO3HgvF3rBIwDI\nawIDAQAB\n-----END PUBLIC KEY-----",
+        "identityzone": "genai-japan-aws-7ht03ppo",
+        "tenantid": "4867e087-3e50-494e-b249-7e5e331d0346"
+      }
+    }
+  ]
+}

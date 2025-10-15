@@ -1,0 +1,65 @@
+
+@host = http://localhost:4004
+@auth = Basic pirate:ahoy
+@model = text-davinci-003
+
+# DELETE {{host}}/ai2report/Records( ID = 'f0f132c6-a3d3-48ea-be80-ad488fc4c172' ) 
+
+# # Call the function to get the list of OpenAI models
+POST {{host}}/ai2report/Chats
+# Content-Type: application/json
+
+
+
+# # Call the function to get the list of OpenAI models
+ //POST {{host}}/ai2report/Chats(5e629bad-9e32-4b36-a105-70b132232b2f)/newRecord
+ //Content-Type: application/json
+
+//{"content": "设计一张销售发票报表"}
+
+
+#  POST {{host}}/ai2report/Records(6032d796-2c20-4ea3-bb9a-04c0f761adc0)/adopt
+#  Content-Type: application/json
+
+
+#  POST {{host}}/ai2report/Reports(e617b4e2-cb21-40cb-ac5f-adb078094a39)/verify
+#  Content-Type: application/json
+
+
+//POST {{host}}/odata/v4/embedding/similitarySearch?question='ABAP Cloud'&category='join'&top=5&threshold=0.5 HTTP/1.1
+
+###
+POST {{host}}/embedding/similitarySearch
+Content-Type: application/json
+
+{ "question":"ABAP Cloud","category":"join","top": 5, "threshold":0.5 }
+
+###
+POST {{host}}/embedding/tableFieldsSearch
+Content-Type: application/json
+
+ { "question":"general ledger","top": 5, "threshold":0.5 , "langu":"en" }
+
+###
+POST {{host}}/embedding/Files
+Content-Type: application/json
+
+ { "ID": "40504438-1a0d-47c1-bcd7-9c157b59d55d","category": "table","fileName": "RAG_cds_fields_JA_01.txt","size": "570409","mediaType": "text/plain","isGenerated": false}
+
+
+###
+POST {{host}}/embedding/cdsViewsSearch
+Content-Type: application/json
+
+ { "question":"purchase/fi", "threshold":0.75 , "langu":"en" }
+
+
+###
+POST {{host}}/embedding/viewFieldsSearch
+Content-Type: application/json
+
+ { "question":"采购订单", "threshold":0.5 , "langu":"zh" }
+
+###
+POST {{host}}/embedding/deleteCdsViews
+Content-Type: application/json
