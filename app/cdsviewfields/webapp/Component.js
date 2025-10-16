@@ -3,7 +3,7 @@ sap.ui.define(
     function (Component) {
         "use strict";
 
-        return Component.extend("cdsviewfields.Component", {
+        return Component.extend("cdsviewfields-ifgen.Component", {
             metadata: {
                 manifest: "json"
             }

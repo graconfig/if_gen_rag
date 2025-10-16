@@ -26,6 +26,6 @@
     ]
   },
   "dependencies": {
-    "ai2report": "file:../.."
+    "ifgenrag": "file:../.."
   }
 }

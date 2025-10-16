@@ -49,6 +49,66 @@ modules:
       disk-quota: 256M
       keep-existing-routes: true
       memory: 256M
+  - name: ifgenragchatbotui
+    type: html5
+    path: app/chat-bot-ui
+    build-parameters:
+      build-result: dist
+      builder: custom
+      commands:
+        - npm ci
+        - npm run build
+      supported-platforms: []
+  - name: ifgenragparameters
+    type: html5
+    path: app/parameters
+    build-parameters:
+      build-result: dist
+      builder: custom
+      commands:
+        - npm ci
+        - npm run build
+      supported-platforms: []
+  - name: ifgenragreports
+    type: html5
+    path: app/reports
+    build-parameters:
+      build-result: dist
+      builder: custom
+      commands:
+        - npm ci
+        - npm run build
+      supported-platforms: []
+  - name: ifgenragcapragapp
+    type: html5
+    path: app/cap-rag-app
+    build-parameters:
+      build-result: dist
+      builder: custom
+      commands:
+        - npm ci
+        - npm run build
+      supported-platforms: []
+  - name: ifgenragragjoincond
+    type: html5
+    path: app/ragjoincond
+    build-parameters:
+      build-result: dist
+      builder: custom
+      commands:
+        - npm ci
+        - npm run build
+      supported-platforms: []
+  - name: ifgenragragtablefields
+    type: html5
+    path: app/ragtablefields
+    build-parameters:
+      build-result: dist
+      builder: custom
+      commands:
+        - npm ci
+        - npm run build
+      supported-platforms: []
   - name: ifgenragcdsviews
     type: html5
     path: app/cdsviews
@@ -82,6 +142,16 @@ modules:
   - name: ifgenragscenarios
     type: html5
     path: app/scenarios
+    build-parameters:
+      build-result: dist
+      builder: custom
+      commands:
+        - npm ci
+        - npm run build
+      supported-platforms: []
+  - name: ifgenragllmconfig
+    type: html5
+    path: app/llmconfig
     build-parameters:
       build-result: dist
       builder: custom
@@ -131,6 +201,10 @@ modules:
       build-result: app/
       requires:
         - artifacts:
+            - cap-rag-app.zip
+          name: ifgenragcapragapp
+          target-path: app/
+        - artifacts:
             - scenarios.zip
           name: ifgenragscenarios
           target-path: app/
@@ -146,6 +220,30 @@ modules:
             - customviewfields.zip
           name: ifgenragcustomviewfields
           target-path: app/
+        - artifacts:
+            - chat-bot-ui.zip
+          name: ifgenragchatbotui
+          target-path: app/
+        - artifacts:
+            - parameters.zip
+          name: ifgenragparameters
+          target-path: app/
+        - artifacts:
+            - ragtablefields.zip
+          name: ifgenragragtablefields
+          target-path: app/
+        - artifacts:
+            - reports.zip
+          name: ifgenragreports
+          target-path: app/
+        - artifacts:
+            - llmconfig.zip
+          name: ifgenragllmconfig
+          target-path: app/
+        - artifacts:
+            - ragjoincond.zip
+          name: ifgenragragjoincond
+          target-path: app/
 
 resources:
   - name: ifgenrag-auth
@@ -160,6 +258,8 @@ resources:
   - name: ifgenrag-db
     type: com.sap.xs.hdi-container
     parameters:
+      config:
+        database_id: 68146dfe-6c00-45d8-9cdb-193f50a6adb4
       service: hana
       service-plan: hdi-shared
   - name: ifgenrag-destination

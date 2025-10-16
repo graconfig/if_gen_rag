@@ -109,7 +109,7 @@ sap.ui.define(
 
         _getBaseURL: function () {
           //var appId = this.getOwnerComponent().getManifestEntry("/sap.app/id");
-          var appPath = "cdsviewfields";
+          var appPath = "cdsviewfields-ifgen";
           var appModulePath = jQuery.sap.getModulePath(appPath);
           return appModulePath;
         },
@@ -127,7 +127,7 @@ sap.ui.define(
 
         Fragment.load({
           id: "fileUploadFragment",
-          name: "cdsviewfields.ext.fragment.fileUpload",
+          name: "cdsviewfields-ifgen.ext.fragment.fileUpload",
           controller: _uploadController(this),
         })
           .then((oDialog) => {

@@ -9,7 +9,7 @@
   ],
   "main": "webapp/index.html",
   "dependencies": {
-    "ai2report": "file:../.."
+    "ifgenrag": "file:../.."
   },
   "devDependencies": {
     "@sap/ui5-builder-webide-extension": "^1.1.9",

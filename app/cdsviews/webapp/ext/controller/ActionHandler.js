@@ -125,7 +125,7 @@ sap.ui.define([
             //MessageToast.show("Custom handler invoked.");
             Fragment.load({
                 id: "uploadDialogId",
-                name: "cdsviews.ext.fragment.upload",
+                name: "cdsviews-ifgen.ext.fragment.upload",
                 controller: _createUploadController(this)
             }).then(function (oDialog) {
                 oDialog.open();

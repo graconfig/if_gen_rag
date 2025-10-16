@@ -1,7 +1,7 @@
 {
   "_version": "1.65.0",
   "sap.app": {
-    "id": "cdsviews",
+    "id": "cdsviews-ifgen",
     "type": "application",
     "i18n": "i18n/i18n.properties",
     "applicationVersion": {
@@ -73,7 +73,7 @@
       "i18n": {
         "type": "sap.ui.model.resource.ResourceModel",
         "settings": {
-          "bundleName": "cdsviews.i18n.i18n"
+          "bundleName": "cdsviews-ifgen.i18n.i18n"
         }
       },
       "": {
@@ -130,7 +130,7 @@
                   },
                   "actions": {
                     "upload": {
-                      "press": "cdsviews.ext.controller.ActionHandler.onUpload",
+                      "press": "cdsviews-ifgen.ext.controller.ActionHandler.onUpload",
                       "visible": true,
                       "enabled": true,
                       "requiresSelection": false,
@@ -163,6 +163,6 @@
   },
   "sap.cloud": {
     "public": true,
-    "service": "ai2report.service"
+    "service": "ifgenrag.service"
   }
 }
